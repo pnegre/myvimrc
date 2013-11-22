@@ -3,15 +3,25 @@
 set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""
 
+" Fuzzy plugin ******************
+set rtp+=~/local/vimplugins/l9
+set rtp+=~/local/vimplugins/fuzzy
+
+map ,e :FufFile **/<CR>
+highlight PmenuSel ctermfg=yellow
+
+"""""""""""""""""""""""""""""""""
+
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
 " and for plugins that are filetype specific.
 filetype indent plugin on
 
 " Various
-:set background=dark	" Colors més vius perquè tenim un background obscur
-:set wildmenu			" Millora de l'autocompletion (tab)
-:set incsearch			" Cerca incremental
+set background=dark	" Colors més vius perquè tenim un background obscur
+set wildmenu			" Millora de l'autocompletion (tab)
+set incsearch			" Cerca incremental
+set hidden             " Canviem de buffer sense haver de desar
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -46,10 +56,12 @@ set tabstop=4
 ":set list
 
 " Encryption method
-:set cryptmethod=blowfish
+if v:version >= 703
+    set cryptmethod=blowfish
+endif
 
 " Enable syntax highlighting 
-:syntax on
+syntax on
 
 " Status line
 set statusline=%f%m%r%h%w\ [POS=%04l,%04v][%p%%]
