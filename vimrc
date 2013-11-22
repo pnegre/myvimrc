@@ -18,10 +18,10 @@ highlight PmenuSel ctermfg=yellow
 filetype indent plugin on
 
 " Various
-set background=dark	" Colors més vius perquè tenim un background obscur
-set wildmenu			" Millora de l'autocompletion (tab)
-set incsearch			" Cerca incremental
-set hidden             " Canviem de buffer sense haver de desar
+set background=dark     " Colors més vius perquè tenim un background obscur
+set wildmenu            " Millora de l'autocompletion (tab)
+set incsearch           " Cerca incremental
+set hidden              " Canviem de buffer sense haver de desar
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -73,6 +73,13 @@ set laststatus=2 " always show the status line
 " Syntax i textwidth a 80 per fitxers TeX
 :au BufRead,BufNewFile *.tex :set tw=80
 :au BufRead,BufNewFile *.tex :syntax enable
+
+" GUI Options
+if has('gui_running')
+    colorscheme zellner
+    set tabpagemax=50
+    set guifont=Monospace\ 14
+endif
 
 " Automatic parens and braces:
 inoremap ( ()<Esc>i
