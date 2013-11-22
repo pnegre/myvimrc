@@ -78,7 +78,6 @@ set laststatus=2 " always show the status line
 if has('gui_running')
     colorscheme zellner
     set tabpagemax=50
-    set guifont=Monospace\ 14
 endif
 
 " Automatic parens and braces:
