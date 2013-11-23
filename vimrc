@@ -1,4 +1,5 @@
 
+
 " Go plugins **************
 set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""
@@ -9,8 +10,11 @@ set rtp+=~/local/vimplugins/fuzzy
 
 map ,e :FufFile **/<CR>
 highlight PmenuSel ctermfg=yellow
-
 """""""""""""""""""""""""""""""""
+
+" Autocompletion """""""""""""""
+set completeopt=longest,menu
+""""""""""""""""""""""""""""""""
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
