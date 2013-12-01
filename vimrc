@@ -1,5 +1,10 @@
+scriptencoding utf-8
+set encoding=utf-8
 
+" Abreviacions útils """"""""""""
+iabbrev ##p #!/usr/bin/python<cr># -*- coding: utf-8 -*-
 
+"""""""""""""""""""""""""""""""""
 " Go plugins **************
 set rtp+=$GOROOT/misc/vim
 """""""""""""""""""""""""""
@@ -11,6 +16,7 @@ set rtp+=~/local/vimplugins/fuzzy
 map ,e :FufFile **/<CR>
 highlight PmenuSel ctermfg=yellow
 """""""""""""""""""""""""""""""""
+
 
 " Autocompletion """""""""""""""
 set completeopt=longest,menu
@@ -26,6 +32,7 @@ set background=dark     " Colors més vius perquè tenim un background obscur
 set wildmenu            " Millora de l'autocompletion (tab)
 set incsearch           " Cerca incremental
 set hidden              " Canviem de buffer sense haver de desar
+set autoread            " Carregar automàticament fitxers modificats externament
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -87,7 +94,7 @@ endif
 " Automatic parens and braces:
 inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
-inoremap { {<CR>}<Esc>O
+inoremap { {}<Esc>i
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
@@ -105,7 +112,7 @@ endf
 
 function CloseBracket()
  if match(getline(line('.') + 1), '\s*}') < 0
- return "\<CR>}"
+ return "\}"
  else
  return "\<Esc>j0f}a"
  endif
