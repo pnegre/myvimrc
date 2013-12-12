@@ -17,6 +17,9 @@ map ,e :FufFile **/<CR>
 highlight PmenuSel ctermfg=yellow
 """""""""""""""""""""""""""""""""
 
+" Shortcut per grep """"""""""""
+map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+""""""""""""""""""""""""""""""""
 
 " Autocompletion """""""""""""""
 set completeopt=longest,menu
