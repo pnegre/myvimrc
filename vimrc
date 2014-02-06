@@ -17,6 +17,10 @@ map ,e :FufFile **/<CR>
 highlight PmenuSel ctermfg=yellow
 """""""""""""""""""""""""""""""""
 
+" Shortcut per nova línia en blanc """"""
+map <F2> O<ESC>
+"""""""""""""""""""""""""""""""""""""""""
+
 " Shortcut per grep """"""""""""
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 """"""""""""""""""""""""""""""""
@@ -36,6 +40,7 @@ set wildmenu            " Millora de l'autocompletion (tab)
 set incsearch           " Cerca incremental
 set hidden              " Canviem de buffer sense haver de desar
 set autoread            " Carregar automàticament fitxers modificats externament
+set hls                 " Highlight search
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
