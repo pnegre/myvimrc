@@ -18,11 +18,22 @@ highlight PmenuSel ctermfg=yellow
 """""""""""""""""""""""""""""""""
 
 " Shortcut per nova línia en blanc """"""
-map <F2> O<ESC>
+map <F3> O<ESC>
 """""""""""""""""""""""""""""""""""""""""
 
 " Shortcut per grep """"""""""""
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+""""""""""""""""""""""""""""""""
+
+" Comentaris amb F1 (comentar) i F2 (descomentar)
+autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType sh,ruby,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType tex              let b:comment_leader = '% '
+autocmd FileType mail             let b:comment_leader = '> '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> <F1> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
+noremap <silent> <F2> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 """"""""""""""""""""""""""""""""
 
 " Autocompletion """""""""""""""
