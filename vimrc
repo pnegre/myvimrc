@@ -36,6 +36,10 @@ noremap <silent> <F1> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<
 noremap <silent> <F2> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 """"""""""""""""""""""""""""""""
 
+" Ctrl-l per eliminar highlighting """"""""""""""
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
+"""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Autocompletion """""""""""""""
 set completeopt=longest,menu
 """"""""""""""""""""""""""""""""
@@ -111,9 +115,11 @@ if has('gui_running')
 endif
 
 " Automatic parens and braces:
-inoremap ( ()<Esc>i
-inoremap [ []<Esc>i
-inoremap { {}<Esc>i
+inoremap (      ()<Esc>i
+inoremap [      []<Esc>i
+inoremap {      {}<Esc>i
+inoremap {<CR>  {<CR>}<Esc>O<Tab>
+inoremap {}     {}
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
