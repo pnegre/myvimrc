@@ -86,7 +86,7 @@ set tabstop=4
 
 " Characters for visualizing "invisible" chars:
 " (enable with :set list)
-:set listchars=tab:>\ ,eol:¬
+:set listchars=tab:»\ ,eol:¬
 ":set list
 
 " Encryption method
@@ -118,7 +118,7 @@ endif
 inoremap (      ()<Esc>i
 inoremap [      []<Esc>i
 inoremap {      {}<Esc>i
-inoremap {<CR>  {<CR>}<Esc>O<Tab>
+inoremap {<CR>  {<CR>}<Esc>O
 inoremap {}     {}
 autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
