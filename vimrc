@@ -30,7 +30,7 @@ map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 """"""""""""""""""""""""""""""""
 
 " Comentaris amb F1 (comentar) i F2 (descomentar)
-autocmd FileType c,cpp,java,scala let b:comment_leader = '// '
+autocmd FileType go,c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
 autocmd FileType conf,fstab       let b:comment_leader = '# '
 autocmd FileType tex              let b:comment_leader = '% '
