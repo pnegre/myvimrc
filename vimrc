@@ -17,6 +17,10 @@ map ,e :FufFile **/<CR>
 highlight PmenuSel ctermfg=yellow
 """""""""""""""""""""""""""""""""
 
+" Change to buffer open in tab if error """""
+set swb=usetab
+"""""""""""""""""""""""""""""""""""""""""""""
+
 " Shortcut per nova línia en blanc """"""
 map <F3> O<ESC>
 """""""""""""""""""""""""""""""""""""""""
@@ -43,6 +47,10 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " Autocompletion """""""""""""""
 set completeopt=longest,menu
 """"""""""""""""""""""""""""""""
+
+" AutoWrite, quan fem :make es graven els canvis """"""""
+set autowrite
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -120,7 +128,7 @@ inoremap [      []<Esc>i
 inoremap {      {}<Esc>i
 inoremap {<CR>  {<CR>}<Esc>O
 inoremap {}     {}
-autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
+" autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
 inoremap ) <c-r>=ClosePair(')')<CR>
 inoremap ] <c-r>=ClosePair(']')<CR>
 inoremap } <c-r>=CloseBracket()<CR>
