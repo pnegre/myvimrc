@@ -7,6 +7,7 @@ iabbrev ##p #!/usr/bin/python<cr># -*- coding: utf-8 -*-
 """""""""""""""""""""""""""""""""
 " Go plugins **************
 set rtp+=$GOROOT/misc/vim
+autocmd FileType go autocmd BufWritePre <buffer> Fmt
 """""""""""""""""""""""""""
 
 " Fuzzy plugin ******************
@@ -37,7 +38,7 @@ autocmd FileType tex              let b:comment_leader = '% '
 autocmd FileType mail             let b:comment_leader = '> '
 autocmd FileType vim              let b:comment_leader = '" '
 noremap <silent> <F1> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <F2> :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+noremap <silent> <F2> :<C-B>silent <C-E>s/\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
 """"""""""""""""""""""""""""""""
 
 " Ctrl-l per eliminar highlighting """"""""""""""
