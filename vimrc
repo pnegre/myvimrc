@@ -1,3 +1,35 @@
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'jnwhiteh/vim-golang'
+Plugin 'jiangmiao/auto-pairs'
+Plugin 'ctrlp.vim'
+Plugin 'ack.vim'
+Plugin 'surround.vim'
+Plugin 'terryma/vim-multiple-cursors'
+Plugin 'tpope/vim-abolish'
+
+" This requires installation of additional software: gocode
+" Enables autocompletion in go (omni-completion)
+Plugin 'nsf/gocode', {'rtp': 'vim/'}
+
+call vundle#end()
+filetype plugin indent on
+
+" No backups and swap files """
+set noswapfile
+set nobackup
+"""""""""""""""""""""""""""""""
+
+" Disable bell """"""""""
+set noeb vb t_vb=
+au GUIEnter * set vb t_vb=
+"""""""""""""""""""""""""
+
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -6,17 +38,9 @@ iabbrev ##p #!/usr/bin/python<cr># -*- coding: utf-8 -*-
 
 """""""""""""""""""""""""""""""""
 " Go plugins **************
-set rtp+=$GOROOT/misc/vim
+autocmd FileType go compiler go
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 """""""""""""""""""""""""""
-
-" Fuzzy plugin ******************
-set rtp+=~/local/vimplugins/l9
-set rtp+=~/local/vimplugins/fuzzy
-
-map ,e :FufFile **/<CR>
-highlight PmenuSel ctermfg=yellow
-"""""""""""""""""""""""""""""""""
 
 " Change to buffer open in tab if error """""
 set swb=usetab
@@ -123,46 +147,3 @@ if has('gui_running')
     set tabpagemax=50
 endif
 
-" Automatic parens and braces:
-inoremap (      ()<Esc>i
-inoremap [      []<Esc>i
-inoremap {      {}<Esc>i
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {}     {}
-" autocmd Syntax html,vim inoremap < <lt>><Esc>i| inoremap > <c-r>=ClosePair('>')<CR>
-inoremap ) <c-r>=ClosePair(')')<CR>
-inoremap ] <c-r>=ClosePair(']')<CR>
-inoremap } <c-r>=CloseBracket()<CR>
-inoremap " <c-r>=QuoteDelim('"')<CR>
-inoremap ' <c-r>=QuoteDelim("'")<CR>
-
-function ClosePair(char)
- if getline('.')[col('.') - 1] == a:char
- return "\<Right>"
- else
- return a:char
- endif
-endf
-
-function CloseBracket()
- if match(getline(line('.') + 1), '\s*}') < 0
- return "\}"
- else
- return "\<Esc>j0f}a"
- endif
-endf
-
-function QuoteDelim(char)
- let line = getline('.')
- let col = col('.')
- if line[col - 2] == "\\"
- "Inserting a quoted quotation mark into the string
- return a:char
- elseif line[col - 1] == a:char
- "Escaping out of the string
- return "\<Right>"
- else
- "Starting a string
- return a:char.a:char."\<Esc>i"
- endif
-endf
