@@ -24,8 +24,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
 
+Plugin 'scrooloose/nerdtree'
 Plugin 'jnwhiteh/vim-golang'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlp.vim'
@@ -37,8 +37,12 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-commentary'
 
-" Aquest no m'acaba de convèncer, per go (syntax checker en gravar)
-" Plugin 'scrooloose/syntastic'
+" Ultisnips
+" Expandir amb <tab>. Botar d'un placeholder a l'altre amb <c-j>
+" Per mirar la llista, 
+" consultar https://github.com/honza/vim-snippets/tree/master/snippets
+Plugin 'sirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 " This requires installation of additional software: gocode
 " Enables autocompletion in go (omni-completion)
@@ -172,6 +176,7 @@ endif
 
 " Go autocommands
 :au FileType go setlocal foldmethod=syntax 
+:au FileType go map K :Godoc<CR>
 
 " }}}
 
