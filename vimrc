@@ -62,6 +62,9 @@ endif
 
 " Mappings {{{
 
+" Leader is comma
+let mapleader = ","
+
 " Comentaris amb F1 (comentar) i F2 (descomentar)
 autocmd FileType go,c,cpp,java,scala let b:comment_leader = '// '
 autocmd FileType sh,ruby,python   let b:comment_leader = '# '
@@ -85,7 +88,13 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 set pastetoggle=<F11>
 
 " Use <space> to fold and unfold in normal mode
-nnoremap <space> za
+nnoremap <space> zA
+
+" Exit with <leader>q
+map <leader>q :qa!<cr>
+
+" Exit and save with <leader>x
+map <leader>x :wqa<cr>
 
 " }}}
 
@@ -147,6 +156,9 @@ endif
 " Syntax i textwidth a 80 per fitxers TeX
 :au BufRead,BufNewFile *.tex :set tw=80
 :au BufRead,BufNewFile *.tex :syntax enable
+
+" Go autocommands
+:au FileType go setlocal foldmethod=syntax 
 
 " }}}
 
