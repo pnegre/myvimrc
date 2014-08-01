@@ -3,7 +3,7 @@
 "
 " I have taken ideas from everyone. This file is constantly evolving.
 "
-" Get the file from github: git clone git@github.com:pnegre/myvimrc.git
+" Get the file from github: git clone https://github.com/pnegre/myvimrc.git
 " and make a symlink to ~/.vimrc
 "
 " Install vundle (simple management for plugins):
@@ -96,6 +96,19 @@ map <leader>q :qa!<cr>
 " Exit and save with <leader>x
 map <leader>x :wqa<cr>
 
+" When searching, keep the result centered horizontally
+nnoremap n nzzzv
+nnoremap N Nzzzv
+
+" Same when jumping
+nnoremap <c-o> <c-o>zz
+
+" Evil cursor keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+
 " }}}
 
 " Abreviacions {{{
@@ -132,6 +145,9 @@ set noeb vb t_vb=
 
 " Folding (default markers)
 set foldmethod=marker
+
+" Keep lines visible when scrolling
+set scrolloff=3
 
 " }}}
 
@@ -175,15 +191,11 @@ set incsearch
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent
 
-" Indentation settings for using 2 spaces instead of tabs.
-" Do not change 'tabstop' from its default value of 8 with this setup.
+" Indentation settings
 set shiftwidth=4
 set softtabstop=4
-set expandtab
-
-" Indentation settings for using hard tabs for indent. 
-set shiftwidth=4
 set tabstop=4
+set expandtab
 
 " }}}
 
