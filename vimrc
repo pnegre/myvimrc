@@ -35,6 +35,7 @@ Plugin 'tpope/vim-abolish'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-commentary'
 
 " Aquest no m'acaba de convèncer, per go (syntax checker en gravar)
 " Plugin 'scrooloose/syntastic'
@@ -65,18 +66,10 @@ endif
 " Leader is comma
 let mapleader = ","
 
-" Comentaris amb F1 (comentar) i F2 (descomentar)
-autocmd FileType go,c,cpp,java,scala let b:comment_leader = '// '
-autocmd FileType sh,ruby,python   let b:comment_leader = '# '
-autocmd FileType conf,fstab       let b:comment_leader = '# '
-autocmd FileType tex              let b:comment_leader = '% '
-autocmd FileType mail             let b:comment_leader = '> '
-autocmd FileType vim              let b:comment_leader = '" '
-noremap <silent> <F1> :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
-noremap <silent> <F2> :<C-B>silent <C-E>s/\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
-
-" Shortcut per nova línia en blanc """"""
+" New empty line
 map <F3> O<ESC>
+
+map <F1> K
 
 " Shortcut per grep """"""""""""
 map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
@@ -108,6 +101,10 @@ map <up> <nop>
 map <down> <nop>
 map <left> <nop>
 map <right> <nop>
+
+" Comment with <leader>c
+nmap <leader>c <Plug>CommentaryLine
+xmap <leader>c <Plug>Commentary
 
 " }}}
 
