@@ -16,7 +16,7 @@
 " That's it!!
 "
 
-" Vundle {{{
+" Vundle {{{1
 
 set nocompatible
 filetype off
@@ -50,22 +50,18 @@ Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 call vundle#end()
 
-"}}}
+" }}}
 
-" Plugins Settings {{{
+" Plugins Settings {{{1
 
 " Set go compiler for go files
 autocmd FileType go compiler go
 autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
-" Auto load NERDTREE if called without arguments and only from GUI
-if has("gui_Running")
-    autocmd VimEnter * if !argc() | NERDTree | endif
-endif
 
 " }}}
 
-" Mappings {{{
+" Mappings {{{1
 
 " Leader is comma
 let mapleader = ","
@@ -83,9 +79,6 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
-
-" Use <space> to fold and unfold in normal mode
-nnoremap <space> zA
 
 " Exit with <leader>q
 map <leader>q :qa!<cr>
@@ -110,16 +103,23 @@ map <right> <nop>
 nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
 
+" Use <space> to fold and unfold in normal mode
+nnoremap <space> zA
+
+" Close all folds and leave only current fold open, with cursor on the middle
+" of the screen
+map <leader>z zMzvzz
+
 " }}}
 
-" Abreviacions {{{
+" Abreviacions {{{1
 
 " Shebang python
 iabbrev ##p #!/usr/bin/python<cr># -*- coding: utf-8 -*-
 
 " }}}
 
-" Various {{{
+" Various {{{1
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
@@ -136,7 +136,7 @@ set encoding=utf-8
 
 " Various
 set background=dark     " Colors més vius perquè tenim un background obscur
-set wildmenu            " Millora de l'autocompletion (tab)
+set wildmenu           " Millora de l'autocompletion (tab)
 set hidden              " Canviem de buffer sense haver de desar
 set autoread            " Carregar automàticament fitxers modificats externament
 set hls                 " Highlight search
@@ -152,7 +152,7 @@ set scrolloff=3
 
 " }}}
 
-" GUI {{{
+" GUI {{{1
 
 " No bell on GUI
 au GUIEnter * set vb t_vb=
@@ -163,9 +163,14 @@ if has('gui_running')
     set tabpagemax=50
 endif
 
+" Auto load NERDTREE if called without arguments and only from GUI
+if has("gui_Running")
+    autocmd VimEnter * if !argc() | NERDTree | endif
+endif
+
 " }}}
 
-" Autocommands {{{
+" Autocommands {{{1
 
 " Textwidth a 80 per fitxers de texte
 :au BufRead,BufNewFile *.txt :set tw=80
@@ -180,7 +185,7 @@ endif
 
 " }}}
 
-" Search, indent, tabs, etc...  {{{
+" Search, indent, tabs, etc...  {{{1
 
 " Use case insensitive search, except when using capital letters
 set ignorecase
@@ -201,7 +206,7 @@ set expandtab
 
 " }}}
 
-" Miscellaneous {{{
+" Miscellaneous {{{1
 
 " Change to buffer open in tab if error """""
 set swb=usetab
