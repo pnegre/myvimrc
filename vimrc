@@ -48,6 +48,9 @@ Plugin 'honza/vim-snippets'
 " Enables autocompletion in go (omni-completion)
 Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
+" YouCompleteMe
+"Plugin 'Valloric/YouCompleteMe'
+
 call vundle#end()
 
 " }}}
@@ -67,12 +70,12 @@ autocmd FileType go autocmd BufWritePre <buffer> Fmt
 let mapleader = ","
 
 " New empty line
-map <F3> O<ESC>
+nnoremap <F3> O<ESC>
 
-map <F1> K
+noremap <F1> K
 
 " Shortcut per grep """"""""""""
-map <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
+noremap <F4> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 
 " Ctrl-l per eliminar highlighting """"""""""""""
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -81,10 +84,10 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 set pastetoggle=<F11>
 
 " Exit with <leader>q
-map <leader>q :qa!<cr>
+noremap <leader>q :qa!<cr>
 
 " Exit and save with <leader>x
-map <leader>x :wqa<cr>
+noremap <leader>x :wqa<cr>
 
 " When searching, keep the result centered horizontally
 nnoremap n nzzzv
@@ -94,10 +97,10 @@ nnoremap N Nzzzv
 nnoremap <c-o> <c-o>zz
 
 " Evil cursor keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+noremap <up> <nop>
+noremap <down> <nop>
+noremap <left> <nop>
+noremap <right> <nop>
 
 " Comment with <leader>c
 nmap <leader>c <Plug>CommentaryLine
@@ -108,7 +111,7 @@ nnoremap <space> zA
 
 " Close all folds and leave only current fold open, with cursor on the middle
 " of the screen
-map <leader>z zMzvzz
+noremap <leader>z zMzvzz
 
 " }}}
 
@@ -144,9 +147,6 @@ set hls                 " Highlight search
 " Disable bell
 set noeb vb t_vb=
 
-" Folding (default markers)
-set foldmethod=marker
-
 " Keep lines visible when scrolling
 set scrolloff=3
 
@@ -172,16 +172,23 @@ endif
 
 " Autocommands {{{1
 
-" Textwidth a 80 per fitxers de texte
-:au BufRead,BufNewFile *.txt :set tw=80
+:augroup myautocommands
 
-" Syntax i textwidth a 80 per fitxers TeX
-:au BufRead,BufNewFile *.tex :set tw=80
-:au BufRead,BufNewFile *.tex :syntax enable
+    " Clears group
+    autocmd!
 
-" Go autocommands
-:au FileType go setlocal foldmethod=syntax 
-:au FileType go map K :Godoc<CR>
+    " Textwidth a 80 per fitxers de texte
+    :au BufRead,BufNewFile *.txt :set tw=80
+
+    " Syntax i textwidth a 80 per fitxers TeX
+    :au BufRead,BufNewFile *.tex :set tw=80
+    :au BufRead,BufNewFile *.tex :syntax enable
+
+    " Go autocommands
+    :au FileType go setlocal foldmethod=indent 
+    :au FileType go map K :Godoc<CR>
+
+:augroup END
 
 " }}}
 
@@ -239,5 +246,14 @@ syntax on
 " Status line
 set statusline=%f%m%r%h%w\ [POS=%04l,%04v][%p%%]
 set laststatus=2 " always show the status line
+
+" Folding (default markers)
+set foldmethod=marker
+
+" Folding max nesting: 1
+set foldnestmax=1
+
+" Fold always, even if only one line
+set fml=0
 
 " }}}
