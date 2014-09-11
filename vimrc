@@ -41,8 +41,8 @@ Plugin 'tpope/vim-commentary'
 " Expandir amb <tab>. Botar d'un placeholder a l'altre amb <c-j>
 " Per mirar la llista, 
 " consultar https://github.com/honza/vim-snippets/tree/master/snippets
-Plugin 'sirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+"Plugin 'sirVer/ultisnips'
+"Plugin 'honza/vim-snippets'
 
 " This requires installation of additional software: gocode
 " Enables autocompletion in go (omni-completion)
@@ -58,8 +58,8 @@ call vundle#end()
 " Plugins Settings {{{1
 
 " Set go compiler for go files
-autocmd FileType go compiler go
-autocmd FileType go autocmd BufWritePre <buffer> Fmt
+"autocmd FileType go compiler go
+"autocmd FileType go autocmd BufWritePre <buffer> Fmt
 
 
 " }}}
@@ -113,6 +113,10 @@ nnoremap <space> zA
 " of the screen
 noremap <leader>z zMzvzz
 
+" Map ctrl-backspace to delete the previous word (like in libreoffice)
+" Caution: does not work in terminal-mode
+imap <C-BS> <C-W>
+
 " }}}
 
 " Abreviacions {{{1
@@ -149,6 +153,9 @@ set noeb vb t_vb=
 
 " Keep lines visible when scrolling
 set scrolloff=3
+
+" I want word wrapping
+set linebreak
 
 " }}}
 
