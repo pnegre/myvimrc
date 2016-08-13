@@ -168,6 +168,7 @@ au GUIEnter * set vb t_vb=
 if has('gui_running')
     colorscheme zellner
     set tabpagemax=50
+    set guifont=Monospace\ 14
 endif
 
 " Auto load NERDTREE if called without arguments and only from GUI
@@ -262,5 +263,8 @@ set foldnestmax=1
 
 " Fold always, even if only one line
 set fml=0
+
+" Evita el problema que quan gravem un arxiu *.go, es plegui el codi
+let g:go_fmt_experimental = 1
 
 " }}}
