@@ -117,6 +117,9 @@ noremap <leader>z zMzvzz
 " Caution: does not work in terminal-mode
 imap <C-BS> <C-W>
 
+" Toggle NERDTree with ctrl-t
+map <C-t> :NERDTreeToggle<CR>
+
 " }}}
 
 " Abreviacions {{{1
