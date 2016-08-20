@@ -36,6 +36,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-commentary'
+Plugin 'Shougo/neocomplete.vim'
 
 " Ultisnips
 " Expandir amb <tab>. Botar d'un placeholder a l'altre amb <c-j>
