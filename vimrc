@@ -226,6 +226,9 @@ set expandtab
 
 " Miscellaneous {{{1
 
+" Cursor line
+set cursorline
+
 " Change to buffer open in tab if error """""
 set swb=usetab
 
