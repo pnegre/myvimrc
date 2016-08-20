@@ -25,8 +25,11 @@ call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
 
-Plugin 'scrooloose/nerdtree'
+" For autocompletion in go, make sure that "gocode" program is installed
+" And set lib-path: gocode lib-path "/usr/lib/go"
 Plugin 'fatih/vim-go'
+
+Plugin 'scrooloose/nerdtree'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ctrlp.vim'
 Plugin 'ack.vim'
@@ -44,10 +47,6 @@ Plugin 'Shougo/neocomplete.vim'
 " consultar https://github.com/honza/vim-snippets/tree/master/snippets
 "Plugin 'sirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
-
-" This requires installation of additional software: gocode
-" Enables autocompletion in go (omni-completion)
-"Plugin 'nsf/gocode', {'rtp': 'vim/'}
 
 " YouCompleteMe
 "Plugin 'Valloric/YouCompleteMe'
