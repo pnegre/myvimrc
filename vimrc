@@ -40,6 +40,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-commentary'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'scrooloose/syntastic'
 
 " Ultisnips
 " Expandir amb <tab>. Botar d'un placeholder a l'altre amb <c-j>
@@ -57,9 +58,17 @@ call vundle#end()
 
 " Plugins Settings {{{1
 
+" neocomplete smartcase
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_auto_select = 0
+let g:neocomplete#enable_smart_case = 1
+
 " Set go compiler for go files
 "autocmd FileType go compiler go
 "autocmd FileType go autocmd BufWritePre <buffer> Fmt
+
+" Syntastic
+let g:syntastic_go_checkers = [ 'go', 'gofmt', 'golint', 'govet' ]
 
 
 " }}}
