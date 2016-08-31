@@ -178,15 +178,15 @@ au GUIEnter * set vb t_vb=
 
 " GUI Options
 if has('gui_running')
-    colorscheme zellner
+    colorscheme koehler
     set tabpagemax=50
-    set guifont=Monospace\ 14
+    set guifont=Monospace\ 12
 endif
 
 " Auto load NERDTREE if called without arguments and only from GUI
-if has("gui_Running")
-    autocmd VimEnter * if !argc() | NERDTree | endif
-endif
+" if has("gui_Running")
+"     autocmd VimEnter * if !argc() | NERDTree | endif
+" endif
 
 " }}}
 
@@ -234,6 +234,9 @@ set expandtab
 " }}}
 
 " Miscellaneous {{{1
+
+" Relative number
+set relativenumber
 
 " Cursor line
 set cursorline
