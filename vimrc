@@ -46,7 +46,7 @@ Plugin 'scrooloose/syntastic'
 " Expandir amb <tab>. Botar d'un placeholder a l'altre amb <c-j>
 " Per mirar la llista, 
 " consultar https://github.com/honza/vim-snippets/tree/master/snippets
-"Plugin 'sirVer/ultisnips'
+Plugin 'sirVer/ultisnips'
 "Plugin 'honza/vim-snippets'
 
 " YouCompleteMe
@@ -70,6 +70,9 @@ let g:neocomplete#enable_smart_case = 1
 " Syntastic
 let g:syntastic_go_checkers = [ 'go', 'gofmt', 'golint', 'govet' ]
 
+" vim-go
+let g:go_auto_type_info = 1
+set updatetime=100
 
 " }}}
 
