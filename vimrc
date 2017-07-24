@@ -74,6 +74,20 @@ let g:syntastic_go_checkers = [ 'go', 'gofmt', 'golint', 'govet' ]
 let g:go_auto_type_info = 1
 set updatetime=100
 
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
+
 " }}}
 
 " Mappings {{{1
@@ -284,6 +298,9 @@ set foldnestmax=1
 
 " Fold always, even if only one line
 set fml=0
+
+" All folds open when opening a file
+autocmd BufWinEnter * silent! :%foldopen!
 
 " Evita el problema que quan gravem un arxiu *.go, es plegui el codi
 let g:go_fmt_experimental = 1
