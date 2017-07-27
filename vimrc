@@ -186,6 +186,9 @@ set scrolloff=3
 " I want word wrapping
 set linebreak
 
+" Leave status bar alone
+set noshowmode
+
 " }}}
 
 " GUI {{{1
