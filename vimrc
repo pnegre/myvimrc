@@ -73,6 +73,7 @@ let g:syntastic_go_checkers = [ 'go', 'gofmt', 'golint', 'govet' ]
 " vim-go
 let g:go_auto_type_info = 1
 set updatetime=100
+let g:go_fmt_command = "goimports"
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
