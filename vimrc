@@ -110,6 +110,9 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
 
+" Terminal with <leader>t
+noremap <leader>t :terminal<cr>
+
 " Exit with <leader>q
 noremap <leader>q :qa!<cr>
 
@@ -124,10 +127,10 @@ nnoremap N Nzzzv
 nnoremap <c-o> <c-o>zz
 
 " Evil cursor keys
-noremap <up> <nop>
-noremap <down> <nop>
-noremap <left> <nop>
-noremap <right> <nop>
+"noremap <up> <nop>
+"noremap <down> <nop>
+"noremap <left> <nop>
+"noremap <right> <nop>
 
 " Comment with <leader>c
 nmap <leader>c <Plug>CommentaryLine
@@ -257,7 +260,7 @@ set expandtab
 " Miscellaneous {{{1
 
 " Relative number
-set relativenumber
+" set relativenumber
 
 " Cursor line
 set cursorline
@@ -308,5 +311,7 @@ autocmd BufWinEnter * silent! :%foldopen!
 
 " Evita el problema que quan gravem un arxiu *.go, es plegui el codi
 let g:go_fmt_experimental = 1
+
+set splitbelow
 
 " }}}
